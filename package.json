@@ -1,7 +1,7 @@
 {
   "name": "use-my-tech-stuff",
   "version": "1.0.0",
-  "description": "",
+  "description": "API for Use My Tech Stuff",
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
@@ -38,5 +38,8 @@
   },
   "jest": {
     "testEnvironment": "node"
+  },
+  "engines": {
+    "node": "11.12.0"
   }
 }
