@@ -22,10 +22,10 @@ module.exports = {
   },
 
 
-  testing: {
+  production: {
     client: 'sqlite3',
     connection: {
-      filename: './data/test.db3',
+      filename: './data/use-my-tech-stuff.db3'
     },
     useNullAsDefault: true,
     migrations: {
