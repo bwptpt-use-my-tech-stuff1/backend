@@ -1,2 +1,5 @@
 # The file containing environment variables 
 .env
+
+# ignore the database
+data/use-my-tech-stuff.db3
