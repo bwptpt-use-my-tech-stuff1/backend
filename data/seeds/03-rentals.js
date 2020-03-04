@@ -11,7 +11,7 @@ exports.seed = function(knex) {
           description: 'Test description',
           category_id: 2,
           checked_out: false,
-          image: 'placeholder',
+          image: 'https://petapixel.com/assets/uploads/2020/01/eosr_feature-800x421.jpg',
           price_hour: 30,
           price_day: 250,
           location: 'Salt Lake City, UT'
@@ -22,7 +22,7 @@ exports.seed = function(knex) {
           description: 'New Camera',
           category_id: 1,
           checked_out: false,
-          image: 'placeholder',
+          image: 'https://petapixel.com/assets/uploads/2020/01/eosr_feature-800x421.jpg',
           price_hour: 25,
           price_day: 150,
           location: 'Athens, GA'
