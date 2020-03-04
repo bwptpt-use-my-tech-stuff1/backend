@@ -39,3 +39,11 @@ Requires a json web token header in Authorization
 }
 
 Returns a list of all rentals available
+
+
+GET /api/protected/rentals/categories
+{
+    Authorization: 'ejaiovneaoinfaef.aeoinaeoiawlfa.aweovanweiovna
+}
+
+Returns a list of all the categories
