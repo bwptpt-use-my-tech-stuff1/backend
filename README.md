@@ -28,8 +28,12 @@ Requires a json web token header in Authorization
 Returns a list of all users
 
 
+
+
 GET /api/protected/users/{id of user}
 Returns the user with the associated ID
+
+
 
 
 GET /api/protected/rentals

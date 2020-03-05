@@ -33,8 +33,7 @@ exports.up = function(knex) {
         tbl.boolean('checked_out')
             .notNullable()
         tbl.string('image', 255).notNullable();
-        tbl.integer('price_hour').notNullable();
-        tbl.integer('price_day').notNullable();
+        tbl.integer('price_per_day').notNullable();
         tbl.string('location', 255).notNullable();
     })
     .createTable('renters_owners_rentals', tbl => {
@@ -60,9 +59,9 @@ exports.up = function(knex) {
           .inTable('rentals')
           .onUpdate('CASCADE')
           .onDelete('CASCADE')
-        tbl.datetime('start_time').notNullable()
-        tbl.datetime('end_time').notNullable();
-        tbl.integer('cost').notNullable();
+        tbl.integer('numDays').notNullable()
+        tbl.integer('price_per_day').notNullable();
+        tbl.integer('total_cost').notNullable();
       })
 };
 
