@@ -5,7 +5,9 @@ module.exports = {
     getRentalBy,
     addRental,
     checkoutItem,
-    getCategories
+    getCategories,
+    updateRental,
+    deleteRental
 }
 
 function getRentals() {
@@ -28,4 +30,14 @@ function getCategories() {
 
 function checkoutItem(item) {
     return item;
+}
+
+async function updateRental(id, updates) {
+    await db('rentals').where({id}).update(updates);
+
+    return getRentalBy({id});
+}
+
+function deleteRental(id) {
+    return db('rentals').del().where({id});
 }

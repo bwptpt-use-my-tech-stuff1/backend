@@ -55,9 +55,35 @@ router.get('/categories', (req, res) => {
 router.get('/:id', (req, res) => {
     const {id} = req.params;
     const renter_id = req.decoded.subject;
-    console.log(id, renter_id);
+    
+    Rentals.getRentalBy({id})
+        .then(rental => {
+            [rental] = rental;
+            rental ? res.status(200).json(rental) : res.status(404).json({message: `No rental with id ${id} was found.`})
+        })
+        .catch(err => res.status(500).json({message: `A server error occured fetching rental with id ${id}.`}))
 })
 
+router.put('/:id', (req, res) => {
+    const {id} = req.params;
+    const changes = req.body;
 
+    Rentals.updateRental(id, changes)
+        .then(updatedRental => {
+            [updatedRental] = updatedRental;
+            res.status(200).json(updatedRental);
+        })
+        .catch(err => res.status(500).json({message: `A server error occured updating the rental: ${err}`}));
+})
+
+router.delete('/:id', (req, res) => {
+    const {id} = req.params;
+
+    Rentals.deleteRental(id)
+        .then(numDel => {
+            numDel === 1 ? res.status(200).json({message: 'Rental deleted successfully'}) : res.status(400).json({message: 'Rental does not exist'});
+        })
+        .catch(err => res.status(500).json({message: `A server error occured deleting rental: ${err}`}))
+})
 
 module.exports = router;
