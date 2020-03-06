@@ -12,14 +12,14 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     let userId = req.decoded.subject;
-    let {title, description, category_id, price_hour, price_day, location} = req.body;
+    let {title, description, category_id, price_per_day, location} = req.body;
     let image = 'https://petapixel.com/assets/uploads/2020/01/eosr_feature-800x421.jpg';
 
     if(req.body.image) {
         image = req.body.image;
     }
 
-    if(!userId || !title || !description || !category_id || !price_hour || !price_day || !location) {
+    if(!userId || !title || !description || !category_id || !price_per_day || !location) {
         res.status(400).json({message: 'Please make sure all required fields are submitted.'})
     } else {
         const newRental = {
@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
             checked_out: false,
             image: image,
             price_hour: price_hour,
-            price_day: price_day,
+            price_per_day: price_per_day,
             location: location
         }
 
