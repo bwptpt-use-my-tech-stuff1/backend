@@ -29,7 +29,6 @@ router.post('/', (req, res) => {
             category_id: category_id,
             checked_out: false,
             image: image,
-            price_hour: price_hour,
             price_per_day: price_per_day,
             location: location
         }
